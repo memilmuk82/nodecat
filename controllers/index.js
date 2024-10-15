@@ -37,11 +37,10 @@ exports.getMyPosts = async (req, res, next) => {
 };
 
 // 해시태그로 게시물을 검색하는 비동기 함수
-exports.searchByHashtag = async (req, res, next) => {
-    
+exports.searchByHashtag = async (req, res, next) => {    
     try {
         const result = await request(
-            req, `/post/hashtag/${encodeURIComponent(req.params.hashtag)}`, // 해시태그로 게시물 요청
+            req, `/posts/hashtag/${encodeURIComponent(req.params.hashtag)}`, // 해시태그로 게시물 요청
         );
         res.json(result.data); // 요청 결과를 JSON 형식으로 반환
     } catch(error) {
